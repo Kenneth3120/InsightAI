@@ -1,2 +1,2 @@
-# InsightAI
-Gen AI Project to analyze data with prompts
+# sociofy
+Automated Social Media Analysis
