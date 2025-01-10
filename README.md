@@ -1,5 +1,6 @@
 # InsightAI
 
+Deployed Linkk:  https://insightai-uz0g.onrender.com
 <h2>What is InsightAI?</h2>
 InsightAI is a powerfull tool that helps you analyze your data from CSV files with an ease. 
 
