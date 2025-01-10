@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import requests
-tokenhere = "AstraCS:tAmXduQdyLljGTHaihkJCTgI:3b5923c9841f1206dd76294e2f3ea5597bf1fc844c2659d304bbfa1d67b8eda5"
+mytoken = "AstraCS:tAmXduQdyLljGTHaihkJCTgI:3b5923c9841f1206dd76294e2f3ea5597bf1fc844c2659d304bbfa1d67b8eda5"
 import csv
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app = Flask(__name__)
 BASE_API_URL = "https://api.langflow.astra.datastax.com"
 LANGFLOW_ID = "a6af9f4a-c1e7-49cb-9d11-7f445fa5e7f0"
 FLOW_ID = "f05c0f91-e615-415d-bd47-3d478bde695d"
-APPLICATION_TOKEN = tokenhere
+APPLICATION_TOKEN = mytoken
 ENDPOINT = "social_media" # You can set a specific endpoint name in the flow settings
 
 def run_flow(message: str, endpoint: str = ENDPOINT, output_type: str = "chat", input_type: str = "chat", tweaks: dict = None) -> dict:
@@ -79,7 +79,7 @@ def read_csv(file_path):
         return data
 @app.route('/')
 def home():
-    csv_data = read_csv('social_media_data.csv')
+    csv_data = read_csv('mock_social_data.csv')
     return render_template('index.html', 
                            post_types=csv_data['labels'], 
                            likes_data=csv_data['likes'], 
