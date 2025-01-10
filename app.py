@@ -66,11 +66,10 @@ def read_csv(file_path):
             reader = csv.DictReader(file)
             for row in reader:
                 try:
-                    data['post_id'].append(row['post_id'])
-                    data['post_type'].append(row['post_type'])  # Ensure this matches your CSV column name
-                    data['likes'].append(int(row['likes']))
-                    data['shares'].append(int(row['shares']))
-                    data['comments'].append(int(row['comments']))
+                    data['labels'].append(row['Post_type'])  # Ensure this matches your CSV column name
+                    data['likes'].append(int(row['Likes']))
+                    data['shares'].append(int(row['Shares']))
+                    data['comments'].append(int(row['Comments']))
                 except (KeyError, ValueError) as e:
                     print(f"Error processing row: {e}")
                     continue
@@ -80,10 +79,9 @@ def read_csv(file_path):
         return data
 @app.route('/')
 def home():
-    csv_data = read_csv('mock_social_data.csv')
+    csv_data = read_csv('mock_social_data1.csv')
     return render_template('index.html', 
-                           post_id=csv_data['post_id'],
-                           post_types=csv_data['post_type'], 
+                           post_types=csv_data['labels'], 
                            likes_data=csv_data['likes'], 
                            shares_data=csv_data['shares'], 
                            comments_data=csv_data['comments'])
