@@ -1,15 +1,15 @@
 from flask import Flask, request, jsonify, render_template
 import requests
-mytoken = "AstraCS:tAmXduQdyLljGTHaihkJCTgI:3b5923c9841f1206dd76294e2f3ea5597bf1fc844c2659d304bbfa1d67b8eda5"
+mytoken = "AstraCS:IARjUuUUigvclPWkomLuRzRZ:bf7570e05cd1931f750a714f1e1eb7146aea10cc647ab92da8909aa9ae92765b"
 import csv
 
 app = Flask(__name__)
 
 BASE_API_URL = "https://api.langflow.astra.datastax.com"
 LANGFLOW_ID = "a6af9f4a-c1e7-49cb-9d11-7f445fa5e7f0"
-FLOW_ID = "f05c0f91-e615-415d-bd47-3d478bde695d"
+FLOW_ID = "30b131b1-4075-4d3b-a3ba-5094f2d63aef"
 APPLICATION_TOKEN = mytoken
-ENDPOINT = "social_media" # You can set a specific endpoint name in the flow settings
+ENDPOINT = "stockAI" # You can set a specific endpoint name in the flow settings
 
 def run_flow(message: str, endpoint: str = ENDPOINT, output_type: str = "chat", input_type: str = "chat", tweaks: dict = None) -> dict:
     api_url = f"{BASE_API_URL}/lf/{LANGFLOW_ID}/api/v1/run/{endpoint}"
